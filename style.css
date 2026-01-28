@@ -1,6 +1,6 @@
 :root {
     --pur: rgb(119, 117, 190);
-    --yel: rgb(255, 253, 141);
+    --yel: rgb(249, 213, 65);
     --pin: rgb(255, 218, 239);
 }
 
@@ -31,6 +31,7 @@ body {
 .nav-link {
     font-size: 20px;
     font-weight: 500;
+    border-radius: 5px;
     border: 3px solid transparent;
 }
 
@@ -95,7 +96,7 @@ body {
 
 .swiper {
     width: 500px;
-    height: 320px;
+    height: 300px;
 }
 
 .swiper-slide {
@@ -104,27 +105,24 @@ body {
     justify-content: center;
     border-radius: 18px;
     font-size: 22px;
-    width: 1000px;
+    width: 100px;
     font-weight: bold;
-    color: #fff;
+    color: black;
+    background-color: var(--yel);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--pur);
 }
 
-.swiper-slide:nth-child(1n) {
-    background-color: rgb(206, 17, 17);
+i{
+    color: var(--pur);
 }
 
-.swiper-slide:nth-child(2n) {
-    background-color: rgb(0, 140, 255);
+.footer{
+    background-color: gray;
+    height: 40px;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.swiper-slide:nth-child(3n) {
-    background-color: rgb(10, 184, 111);
-}
-
-.swiper-slide:nth-child(4n) {
-    background-color: rgb(211, 122, 7);
-}
-
-.swiper-slide:nth-child(5n) {
-    background-color: rgb(118, 163, 12);
-}
