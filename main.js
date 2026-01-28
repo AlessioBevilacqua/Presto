@@ -1,3 +1,5 @@
+
+
 let firstNumber = document.querySelector('#firstNumber');
 let secondNumber = document.querySelector('#secondNumber');
 let thirdNumber = document.querySelector('#thirdNumber');
@@ -33,5 +35,11 @@ let intersectObserver = new IntersectionObserver((entries) => {
 });
 
 intersectObserver.observe(firstNumber);
+
+
+ const swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+    });
     
     
