@@ -13,8 +13,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 body {
     font-family: "Anaheim", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;;
+    font-weight: 400;
     font-style: normal;
+    background-color: var(--pin);
 }
 
 /* Navbar */
@@ -72,7 +73,7 @@ body {
     border-radius: 30px;
     padding: 20px;
     position: relative;
-    top: -190px;
+    top: -200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
 }
@@ -83,4 +84,11 @@ body {
 
 .info-section{
     background-color: var(--pin);
+}
+
+/* Number section */
+.custom-img{
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    height: 700px;
 }
