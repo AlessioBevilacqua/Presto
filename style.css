@@ -1,3 +1,9 @@
+:root {
+    --pur: rgb(119, 117, 190);
+    --yel: rgb(255, 253, 141);
+    --pin: rgb(255, 218, 239);
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Allerta Stencil", sans-serif;
     font-weight: 400;
@@ -7,18 +13,74 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 body {
     font-family: "Anaheim", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 400;;
     font-style: normal;
 }
 
+/* Navbar */
 .logo2 {
     width: 50px;
 }
 
+
+.navbar{
+    padding: 0;
+}
+
+.nav-link {
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px solid transparent;
+}
+
+#customNavbar {
+    background-color: var(--pur);
+    padding: 10px;
+}
+
+.nav-link:hover {
+    border-bottom: 3px solid var(--yel);
+}
+
+/* Hero Section */
 .hero-section {
-    background-image: url('./media/Hero.jpg');
+    background-image: linear-gradient(to bottom,var(--pur), rgba(0, 0, 0, 0) 30% 60% , var(--pin)), url('./media/Hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+    margin-top: 73px;
+}
+
+.hero-title{
+    font-size: 100px;
+    position: relative;
+    top: -70px;
+}
+
+@media screen and (max-width: 560px) {
+    .hero-title{
+        font-size: 70px;
+    }
+}
+
+/* Info Section */
+.info-cards {
+    background-color: var(--pur);
+    color: white;
+    padding: 50px 0;
+    border-radius: 30px;
+    padding: 20px;
+    position: relative;
+    top: -190px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+
+.info-cards:hover {
+    transform: translateY(-30px);
+}
+
+.info-section{
+    background-color: var(--pin);
 }

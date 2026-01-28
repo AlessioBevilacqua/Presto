@@ -19,42 +19,32 @@
     
     <!-- navbar -->
     
-    <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg fixed-top w-100">
+        <div id="customNavbar"  class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="fa-solid fa-dragon fa-2x"></i>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-md-flex justify-content-center" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Annunci</a>
+                        <a class="nav-link" href="./annunci.html">Annunci</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                        <a class="nav-link" href="./chi-siamo.html">Chi Siamo</a>
                     </li>
                 </ul>
             </div>
-            <div class="navbar-brand logo2"></div>
+            <div class="navbar-brand logo2 d-none d-lg-block"></div>
         </div>
     </nav>
     <!-- navbar end -->
-
+    
     <!-- Hero section -->
     <header class="hero-section d-flex justify-content-center align-items-center text-center">
         <div class="hero-content">
@@ -63,7 +53,30 @@
         </div>
     </header>
     <!-- Hero section end -->
-
+    
+    <!-- Info section -->
+     <section class="info-section py-5">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="info-cards col-md-3 text-center mb-5">
+                    <i class="fa-solid fa-magnifying-glass fa-3x mb-3"></i>
+                    <h3>Trova ciò che cerchi</h3>
+                    <p>Esplora una vasta gamma di annunci per trovare esattamente ciò di cui hai bisogno.</p>
+                </div>
+                <div class="info-cards col-md-3 text-center mb-5">
+                    <i class="fa-solid fa-user-plus fa-3x mb-3"></i>
+                    <h3>Pubblica i tuoi annunci</h3>
+                    <p>Condividi facilmente i tuoi articoli in vendita con la nostra piattaforma intuitiva.</p>
+                </div>
+                <div class="info-cards col-md-3 text-center mb-5">
+                    <i class="fa-solid fa-shield-halved fa-3x mb-3"></i>
+                    <h3>Transazioni sicure</h3>
+                    <p>Garantiamo un ambiente sicuro per tutte le tue transazioni online.</p>
+                </div>
+            </div>
+        </div>
+        
+    
     <!-- Custom JS -->
     <script src="./main.js"></script>
     
