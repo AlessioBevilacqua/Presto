@@ -3,29 +3,29 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
     data.sort((a,b)=> a.price - b.price);
     
     let radioWrapper = document.querySelector('#radioWrapper');
-    let cardsWrapper = document.querySelector('#cardsWrapper')
-
+    let cardsWrapper = document.querySelector('#cardsWrapper');
+    
     function radioCreate(){
         let categories = data.map((annuncio)=> annuncio.category);
         
         let uniqueCategories = Array.from(new Set (categories));
-
+        
         uniqueCategories.sort();
-
+        
         uniqueCategories.forEach((category)=> {
             let div = document.createElement('div');
             div.classList.add('form-check');
             div.innerHTML = `<input class="form-check-input" type="radio" name="categories" role="button" id="${category}">
-                                    <label class="form-check-label" role="button" for="${category}">
-                                        ${category}
-                                    </label>`;
+            <label class="form-check-label" role="button" for="${category}">
+            ${category}
+            </label>`;
             
             radioWrapper.appendChild(div)
         });
     }
-
+    
     radioCreate()
-
+    
     
     function truncateWord(string){
         if(string.length > 15){
@@ -50,23 +50,28 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
     }
     
     createCard(data)
+    
+    let radioButton = document.querySelectorAll('.form-check-input');
 
+    function filteredByCategory(array) {
+        let categoria = Array.from(radioButton).find( (bottone)=> bottone.checked).id;
 
-    function filteredByCategory(categoria) {
+        console.log(categoria);
+        
+
         if(categoria != 'All'){
-        let filtered = data.filter( (annuncio)=> annuncio.category == categoria );
-        createCard(filtered)
+        let filtered = array.filter( (annuncio)=> annuncio.category == categoria );
+        return filtered;
         }else{
-            createCard(data)
+            return;
         }
     }
     
-    let radioButton = document.querySelectorAll('.form-check-input')
 
     
     radioButton.forEach((button)=>{
         button.addEventListener('click', ()=>{
-            filteredByCategory(button.id);
+            globalFilter(button.id);
         });
     });
 
@@ -85,25 +90,34 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
     
     priceInput();
 
-    function filteredByPrice(){
-        let filtered = data.filter((annuncio)=> +annuncio.price <= range.value);
-        createCard(filtered);
+    function filteredByPrice(array){
+        let filtered = array.filter((annuncio)=> +annuncio.price <= range.value);
+        return filtered;
     }
 
     range.addEventListener('input', ()=>{
-        filteredByPrice();
+        globalFilter();
         priceValue.innerHTML = range.value;
     });
     
 
     let wordInput = document.querySelector('#wordInput');
 
-    function filteredByWord(parola){
-        let filtered = data.filter((annuncio)=> annuncio.name.toLowerCase().includes(parola.toLowerCase()));
-        createCard(filtered)
+    function filteredByWord(array){
+        let filtered = array.filter((annuncio)=> annuncio.name.toLowerCase().includes(wordInput.value.toLowerCase()));
+        return filtered;
     };
 
     wordInput.addEventListener('input', ()=>{
-        filteredByWord(wordInput.value)
+        globalFilter();
     });
+
+    function globalFilter(){
+        let filterByCategory = filteredByCategory(data);
+        let filterByPrice = filteredByPrice(filterByCategory);
+        let filterByWord = filteredByWord(filterByPrice);
+
+        createCard(filterByWord);
+    };
+
 });
