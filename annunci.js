@@ -63,7 +63,7 @@ fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
         let filtered = array.filter( (annuncio)=> annuncio.category == categoria );
         return filtered;
         }else{
-            return;
+            return data;
         }
     }
     
