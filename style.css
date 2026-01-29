@@ -74,7 +74,7 @@ body {
 }
 
 .info-cards:hover {
-    transform: translateY(-30px);
+    transform: scale(1.1);
 }
 
 .info-section{
@@ -88,6 +88,7 @@ body {
     height: 700px;
 }
 
+/* reviews section */
 .swiper {
     width: 500px;
     height: 300px;
@@ -120,6 +121,7 @@ body {
     color: var(--pur);
 }
 
+/* footer */
 .footer{
     background-color: gray;
     height: 50px;
@@ -129,6 +131,80 @@ body {
     justify-content: center;
 }
 
+/* Pagina annunci */
+
+/* accordion */
+.accordion-button, .accordion-item{
+    background-color: var(--pur);
+    color: white;
+}
+
+.accordion-item{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.accordion-button:not(.collapsed){
+    background-color: var(--pur);
+    box-shadow: none;
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.sticky{
+    position: sticky;
+    top: 100px;
+}
+
+.filterBtn{
+    background-color: var(--pur);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 2px solid var(--yel);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+#wordInput{
+    width: 180px;
+    border-radius: 20px;
+    border: 2px solid var(--pin);
+}
+
+
+
+/* cards */
+.card{
+    background-color: var(--yel);
+    border: 2px solid var(--pur);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.cardImg{
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+
+
+/* media queries */
 @media screen and (max-width: 560px) {
     .hero-title{
         font-size: 70px;
