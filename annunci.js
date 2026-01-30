@@ -1,5 +1,5 @@
 fetch('./json/annunci.json').then((response)=> response.json()).then((data)=>{
-
+    
     data.sort((a,b)=> a.price - b.price);
     
     let radioWrapper = document.querySelector('#radioWrapper');
@@ -52,72 +52,72 @@ fetch('./json/annunci.json').then((response)=> response.json()).then((data)=>{
     createCard(data)
     
     let radioButton = document.querySelectorAll('.form-check-input');
-
+    
     function filteredByCategory(array) {
         let categoria = Array.from(radioButton).find( (bottone)=> bottone.checked).id;
-
+        
         console.log(categoria);
         
-
+        
         if(categoria != 'All'){
-        let filtered = array.filter( (annuncio)=> annuncio.category == categoria );
-        return filtered;
+            let filtered = array.filter( (annuncio)=> annuncio.category == categoria );
+            return filtered;
         }else{
-            return data;
+            return array;
         }
     }
     
-
+    
     
     radioButton.forEach((button)=>{
         button.addEventListener('click', ()=>{
             globalFilter(button.id);
+            priceInput();
         });
     });
-
+    
     let range = document.querySelector('#range');
     let priceValue = document.querySelector('#priceValue')
-
+    
     function priceInput(){
-        let prices = data.map((annuncio)=> +annuncio.price);
+        let prices = filteredByCategory(data).map((annuncio)=> +annuncio.price);
         prices.sort((a, b)=> a - b);
         let maxPrice = Math.ceil(prices.pop());
         range.max = maxPrice;
         range.value = maxPrice;
         priceValue.innerHTML = maxPrice;
-
     }
     
     priceInput();
-
+    
     function filteredByPrice(array){
         let filtered = array.filter((annuncio)=> +annuncio.price <= range.value);
         return filtered;
     }
-
+    
     range.addEventListener('input', ()=>{
         globalFilter();
         priceValue.innerHTML = range.value;
     });
     
-
+    
     let wordInput = document.querySelector('#wordInput');
-
+    
     function filteredByWord(array){
         let filtered = array.filter((annuncio)=> annuncio.name.toLowerCase().includes(wordInput.value.toLowerCase()));
         return filtered;
     };
-
+    
     wordInput.addEventListener('input', ()=>{
         globalFilter();
     });
-
+    
     function globalFilter(){
         let filterByCategory = filteredByCategory(data);
         let filterByPrice = filteredByPrice(filterByCategory);
         let filterByWord = filteredByWord(filterByPrice);
-
+        
         createCard(filterByWord);
     };
-
+    
 });
