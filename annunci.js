@@ -1,4 +1,4 @@
-fetch('./annunci.json').then((response)=> response.json()).then((data)=>{
+fetch('./json/annunci.json').then((response)=> response.json()).then((data)=>{
 
     data.sort((a,b)=> a.price - b.price);
     
